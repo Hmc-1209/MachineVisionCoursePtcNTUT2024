@@ -1,0 +1,1 @@
+This is the git repository for storing practices & homeworks in Machine Vision classes in NTUT.
