@@ -30,7 +30,7 @@ def split_image(img, width):
 
 def merge_and_process_image(left_img, right_img):
     # Merging left & right image
-    stereo = cv2.StereoBM.create(numDisparities=48, blockSize=15)
+    stereo = cv2.StereoSGBM.create(numDisparities=48, blockSize=15)
     disparity = stereo.compute(left_img, right_img)
     disparity = cv2.dilate(disparity, (15, 15))
     disparity = cv2.normalize(disparity, disparity, alpha=0, beta=255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_8U)
