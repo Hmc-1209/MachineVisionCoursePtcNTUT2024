@@ -41,16 +41,16 @@ cv2.imshow("(d) Highpass kernel fourier", freq_image(fft_highpass_kernel))
 f_lowpass_shift = (fft_img * fft_lowpass_kernel)
 f_highpass_shift = (fft_img * fft_highpass_kernel)
 
-cv2.imshow("(f) Lowpass reversed Image", freq_image(f_lowpass_shift))
-cv2.imshow("(f) Highpass reversed Image", freq_image(f_highpass_shift))
+cv2.imshow("(f) Lowpass Filtered Image", freq_image(f_lowpass_shift))
+cv2.imshow("(f) Highpass Filtered Image", freq_image(f_highpass_shift))
 
 # Reverse fft
 img_lowpass = freq_image(np.fft.ifft2(f_lowpass_shift))
 img_highpass = freq_image(np.fft.ifft2(f_highpass_shift))
 
 # Show image results
-cv2.imshow("(e) Lowpass Filtered Image", img_lowpass)
-cv2.imshow("(e) Highpass Filtered Image", img_highpass)
+cv2.imshow("(e) Lowpass Reversed Image", img_lowpass)
+cv2.imshow("(e) Highpass Reversed Image", img_highpass)
 
 
 cv2.imshow("Directly lowpass convolve:", np.clip(signal.convolve2d(img, lowpass_kernel, 'same'), 0, 255).astype(np.uint8))
